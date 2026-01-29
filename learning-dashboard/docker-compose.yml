@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: dashboard
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  dashboard:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      DATABASE_URL: postgresql+psycopg2://postgres:postgres@db:5432/dashboard
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+
+volumes:
+  pgdata:
+

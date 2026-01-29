@@ -1,0 +1,11 @@
+python-dotenv==1.0.1
+razorpay==1.4.2
+requests==2.31.0
+psycopg2-binary==2.9.9
+SQLAlchemy==2.0.25
+streamlit==1.41.1
+pyyaml==6.0.2
+bcrypt==4.2.1
+setuptools
+wheel
+
